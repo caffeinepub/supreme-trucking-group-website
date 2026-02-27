@@ -1,25 +1,23 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-27T18:15:10.272Z",
+  "generatedAt": "2026-02-27T19:58:10.065Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
     "total": 1,
-    "implemented": 1,
+    "implemented": 0,
     "items": [
       {
-        "id": "REQ-7",
-        "summary": "Fix the 'Careers' navigation link in the Header component (frontend/src/components/Header.tsx) so that clicking it navigates to the /careers route. Inspect the current click handler or href for the Careers nav item and ensure it uses the router's navigation (e.g., router.navigate or an <a href='/careers'> / Link to='/careers') consistently with how the Resources page link is implemented. Apply the fix to both the desktop nav and the mobile hamburger menu.",
-        "status": "implemented",
+        "id": "REQ-9",
+        "summary": "In frontend/src/pages/CareersPage.tsx, inject a valid schema.org JobPosting JSON-LD structured data block directly in the component's JSX return as a <script type='application/ld+json'> tag using dangerouslySetInnerHTML. The JSON-LD must include at minimum: @context (https://schema.org), @type (JobPosting), title (Class A CDL Team Driver – OTR Refrigerated), hiringOrganization (Supreme Trucking / supremeltl.com), jobLocation (nationwide/United States), datePosted, baseSalary reflecting the CPM pay structure, and applicationContact with phone (201) 838-0000 ext. 1 and email recruiting@supremeltl.com. Do not modify any other component, page, backend logic, or styling — only add the <script> tag to CareersPage.tsx.",
+        "status": "missing",
         "plannedFiles": [
-          "frontend/src/components/Header.tsx"
+          "frontend/src/pages/CareersPage.tsx"
         ],
-        "matchedFiles": [
-          "frontend/src/components/Header.tsx"
-        ]
+        "matchedFiles": []
       }
     ]
   },
@@ -28,7 +26,6 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/components/Header.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

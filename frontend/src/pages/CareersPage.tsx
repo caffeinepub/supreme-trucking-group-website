@@ -196,7 +196,7 @@ export default function CareersPage() {
               </a>
 
               <a
-                href="mailto:contact@supremeltl.com"
+                href="mailto:recruiting@supremeltl.com"
                 className="flex items-center gap-3 text-foreground hover:text-primary transition-colors group"
               >
                 <span className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
@@ -204,7 +204,7 @@ export default function CareersPage() {
                 </span>
                 <div>
                   <p className="text-xs text-muted-foreground uppercase tracking-wide font-medium">Email</p>
-                  <p className="font-semibold">contact@supremeltl.com</p>
+                  <p className="font-semibold">recruiting@supremeltl.com</p>
                 </div>
               </a>
             </div>

@@ -1,24 +1,4 @@
 {
   "kind": "feature_evidence_report",
-  "features": [
-    {
-      "featureId": "feature-fix-the-careers-navigation-link-in-the-header-component-frontend-src-components-header-tsx-so-that-clicking-it-navigates-to-the-careers-route-inspect-the-current-click-handler-or-href-for-the-careers-nav-item-and-ensure-it-uses-the-router-s-navigation-e-g-router-navigate-or-an-a-href-careers-link-to-careers-consistently-with-how-the-resources-page-link-is-implemented-apply-the-fix-to-both-the-desktop-nav-and-the-mobile-hamburger-menu",
-      "featureTitle": "Fix the 'Careers' navigation link in the Header component (frontend/src/components/Header.tsx) so that clicking it navigates to the /careers route. Inspect the current click handler or href for the Careers nav item and ensure it uses the router's navigation (e.g., router.navigate or an <a href='/careers'> / Link to='/careers') consistently with how the Resources page link is implemented. Apply the fix to both the desktop nav and the mobile hamburger menu.",
-      "files": [
-        "frontend/src/components/Header.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "blob-storage@4.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-7"
-      ],
-      "confidence": "high"
-    }
-  ]
+  "features": []
 }

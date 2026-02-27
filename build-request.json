@@ -1,38 +1,41 @@
 {
   "kind": "build_request",
-  "title": "Fix broken Careers navigation link on the main page",
+  "title": "Add JobPosting JSON-LD structured data to CareersPage",
   "projectName": "Supreme Trucking",
-  "priority": "high",
+  "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-7",
-      "text": "Fix the 'Careers' navigation link in the Header component (frontend/src/components/Header.tsx) so that clicking it navigates to the /careers route. Inspect the current click handler or href for the Careers nav item and ensure it uses the router's navigation (e.g., router.navigate or an <a href='/careers'> / Link to='/careers') consistently with how the Resources page link is implemented. Apply the fix to both the desktop nav and the mobile hamburger menu.",
+      "id": "REQ-9",
+      "text": "In frontend/src/pages/CareersPage.tsx, inject a valid schema.org JobPosting JSON-LD structured data block directly in the component's JSX return as a <script type='application/ld+json'> tag using dangerouslySetInnerHTML. The JSON-LD must include at minimum: @context (https://schema.org), @type (JobPosting), title (Class A CDL Team Driver – OTR Refrigerated), hiringOrganization (Supreme Trucking / supremeltl.com), jobLocation (nationwide/United States), datePosted, baseSalary reflecting the CPM pay structure, and applicationContact with phone (201) 838-0000 ext. 1 and email recruiting@supremeltl.com. Do not modify any other component, page, backend logic, or styling — only add the <script> tag to CareersPage.tsx.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-4"
         ],
         "quotes": [
-          "when i click on the word careers in the main page, nothing happens"
+          "i need you to add JobPosting schema to the careers page. change nothing else"
         ]
       },
       "acceptanceCriteria": [
-        "Clicking 'Careers' in the desktop navigation bar navigates the user to the /careers page.",
-        "Clicking 'Careers' in the mobile hamburger menu navigates the user to the /careers page.",
-        "The Careers link behavior is consistent with how the Resources link is implemented in the Header.",
-        "No other navigation links or page functionality are broken by this change."
+        "The rendered DOM of the /careers route contains a <script type='application/ld+json'> element.",
+        "The JSON-LD content parses as valid JSON and includes @context, @type, title, hiringOrganization, jobLocation, and datePosted fields.",
+        "@type is exactly 'JobPosting'.",
+        "hiringOrganization references Supreme Trucking.",
+        "applicationContact email is recruiting@supremeltl.com.",
+        "No other component, page, backend file, or stylesheet is modified."
       ]
     }
   ],
   "constraints": [
-    "Do not modify any immutable frontend paths (useInternetIdentity, useActor, main.tsx, ui components).",
-    "Do not alter the CareersPage content or its JSON-LD structured data.",
-    "Do not change backend logic."
+    "Only frontend/src/pages/CareersPage.tsx may be modified.",
+    "Do not alter any existing visible content, layout, or styling on the Careers page.",
+    "Do not modify any backend files, other frontend components, or other pages."
   ],
   "nonGoals": [
-    "Changing the content or layout of the Careers page itself.",
-    "Modifying any other navigation links beyond the Careers entry.",
-    "Adding new routes or pages."
+    "Changing any copy, pay rates, contact info, or visual design on the Careers page.",
+    "Adding structured data to any page other than CareersPage.tsx.",
+    "Modifying Header.tsx, Footer.tsx, or any other component.",
+    "Backend changes of any kind."
   ],
   "imageRequirements": {
     "required": [],

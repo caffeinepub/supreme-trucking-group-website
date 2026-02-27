@@ -1,13 +1,12 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 15,
+  "projectStateVersion": 19,
   "summary": "New project",
   "architectural_notes": [],
   "known_issues": [
-    "JobPosting schema was reportedly not added despite deployment of Version 47 — needs retry",
-    "Careers navigation link on the main page is non-functional — click does nothing"
+    "JobPosting schema was reportedly not added despite deployment of Version 47 — needs retry"
   ],
-  "isFixRequest": true,
+  "isFixRequest": false,
   "existing_features": [
     {
       "id": "feature-add-jobposting-json-ld-structured-data-markup-schema-org-jobposting-to-the-careers-page-so-search-engines-can-index-job-postings-inject-the-script-type-application-ld-json-block-into-the-careerspage-component-do-not-modify-any-other-component-page-backend-logic-or-styling",
@@ -38,6 +37,14 @@
       "title": "Fix the 'Careers' navigation link in the Header component (frontend/src/components/Header.tsx) so that clicking it navigates to the /careers route. Inspect the current click handler or href for the Careers nav item and ensure it uses the router's navigation (e.g., router.navigate or an <a href='/careers'> / Link to='/careers') consistently with how the Resources page link is implemented. Apply the fix to both the desktop nav and the mobile hamburger menu.",
       "reqIds": [
         "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-the-careerspage-component-frontend-src-pages-careerspage-tsx-replace-the-email-address-contact-supremeltl-com-with-recruiting-supremeltl-com-in-the-apply-today-section-also-update-the-email-in-the-json-ld-structured-data-script-tag-if-it-appears-there",
+      "title": "In the CareersPage component (frontend/src/pages/CareersPage.tsx), replace the email address 'contact@supremeltl.com' with 'recruiting@supremeltl.com' in the Apply Today section. Also update the email in the JSON-LD structured data script tag if it appears there.",
+      "reqIds": [
+        "REQ-8"
       ],
       "version": 1
     }
@@ -92,9 +99,17 @@
       "status": "pending"
     },
     {
-      "id": "AR-8",
-      "summary": "Fix broken Careers navigation link on the main page — clicking 'Careers' does nothing",
+      "id": "AR-9",
+      "summary": "On the Careers page, change the email address from contact@supremeltl.com to recruiting@supremeltl.com",
       "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "In frontend/src/pages/CareersPage.tsx, inject a valid schema.org JobPosting JSON-LD structured data block directly in the component's JSX return as a <script type='application/ld+json'> tag using dangerouslySetInnerHTML. The JSON-LD must include at minimum: @context (https://schema.org), @type (JobPosting), title (Class A CDL Team Driver – OTR Refrigerated), hiringOrganization (Supreme Trucking / supremeltl.com), jobLocation (nationwide/United States), datePosted, baseSalary reflecting the CPM pay structure, and applicationContact with phone (201) 838-0000 ext. 1 and email recruiting@supremeltl.com. Do not modify any other component, page, backend logic, or styling — only add the <script> tag to CareersPage.tsx.",
+      "reqIds": [
+        "REQ-9"
+      ],
       "status": "pending"
     }
   ],

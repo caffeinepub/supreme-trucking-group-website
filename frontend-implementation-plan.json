@@ -1,22 +1,24 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Fix broken Careers navigation link on the main page",
+  "title": "Add JobPosting JSON-LD structured data to CareersPage",
   "requirements": [
     {
-      "id": "REQ-7",
-      "summary": "Fix the Careers navigation link in the Header component so clicking it navigates to the /careers route in both desktop and mobile navigation",
+      "id": "REQ-9",
+      "summary": "Inject valid schema.org JobPosting JSON-LD structured data into CareersPage.tsx as a <script type='application/ld+json'> tag",
       "acceptanceCriteria": [
-        "Clicking 'Careers' in the desktop navigation bar navigates the user to the /careers page.",
-        "Clicking 'Careers' in the mobile hamburger menu navigates the user to the /careers page.",
-        "The Careers link behavior is consistent with how the Resources link is implemented in the Header.",
-        "No other navigation links or page functionality are broken by this change."
+        "The rendered DOM of the /careers route contains a <script type='application/ld+json'> element.",
+        "The JSON-LD content parses as valid JSON and includes @context, @type, title, hiringOrganization, jobLocation, and datePosted fields.",
+        "@type is exactly 'JobPosting'.",
+        "hiringOrganization references Supreme Trucking.",
+        "applicationContact email is recruiting@supremeltl.com.",
+        "No other component, page, backend file, or stylesheet is modified."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/Header.tsx",
+          "path": "frontend/src/pages/CareersPage.tsx",
           "operation": "modify",
-          "description": "Inspect and fix the Careers navigation link click handler in both desktop and mobile menus. Compare with the Resources link implementation and ensure consistent router.navigate usage. Verify the navigation works correctly by testing the onClick handler for the Careers nav item matches the pattern used for Resources."
+          "description": "Add a <script type='application/ld+json'> tag using dangerouslySetInnerHTML within the component's JSX return. The JSON-LD structured data must include @context (https://schema.org), @type (JobPosting), title (Class A CDL Team Driver – OTR Refrigerated), hiringOrganization with name Supreme Trucking and sameAs supremeltl.com, jobLocation covering nationwide/United States, datePosted with an ISO 8601 date, baseSalary reflecting the CPM pay structure from the existing page content, and applicationContact with telephone (201) 838-0000 ext. 1 and email recruiting@supremeltl.com. Do not alter any existing JSX, styling, or visible content on the page."
         }
       ]
     }
