@@ -1,0 +1,39 @@
+{
+  "kind": "build_request",
+  "title": "Add JobPosting structured data schema",
+  "projectName": "Supreme LTL",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-4",
+      "text": "Add JobPosting JSON-LD structured data markup (schema.org/JobPosting) to the Careers page so search engines can index job postings. Inject the <script type='application/ld+json'> block into the CareersPage component. Do not modify any other component, page, backend logic, or styling.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-7"
+        ],
+        "quotes": [
+          "add JobPosting schema and change nothing else"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A <script type='application/ld+json'> tag containing a valid schema.org/JobPosting object is rendered in the CareersPage component.",
+        "No other files are modified — backend, other pages, components, hooks, and styles remain unchanged.",
+        "The structured data validates against schema.org/JobPosting requirements (hiringOrganization, title, datePosted, jobLocation or applicantLocationRequirements)."
+      ]
+    }
+  ],
+  "constraints": [
+    "Only modify frontend/src/pages/CareersPage.tsx — no other files.",
+    "Do not alter any backend logic, data models, or other frontend components."
+  ],
+  "nonGoals": [
+    "Adding actual job listings or dynamic job data from the backend.",
+    "Modifying the privacy policy content or contact information.",
+    "Changing any UI styling or layout."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

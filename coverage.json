@@ -1,0 +1,39 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-27T17:01:27.562Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 1,
+    "implemented": 1,
+    "items": [
+      {
+        "id": "REQ-4",
+        "summary": "Add JobPosting JSON-LD structured data markup (schema.org/JobPosting) to the Careers page so search engines can index job postings. Inject the <script type='application/ld+json'> block into the CareersPage component. Do not modify any other component, page, backend logic, or styling.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/CareersPage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/CareersPage.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "build-request.json",
+    "build-template/README.md",
+    "caffeine.lock.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/pages/CareersPage.tsx",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

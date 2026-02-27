@@ -1,0 +1,24 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-add-jobposting-json-ld-structured-data-markup-schema-org-jobposting-to-the-careers-page-so-search-engines-can-index-job-postings-inject-the-script-type-application-ld-json-block-into-the-careerspage-component-do-not-modify-any-other-component-page-backend-logic-or-styling",
+      "featureTitle": "Add JobPosting JSON-LD structured data markup (schema.org/JobPosting) to the Careers page so search engines can index job postings. Inject the <script type='application/ld+json'> block into the CareersPage component. Do not modify any other component, page, backend logic, or styling.",
+      "files": [
+        "frontend/src/pages/CareersPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "blob-storage@4.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    }
+  ]
+}
