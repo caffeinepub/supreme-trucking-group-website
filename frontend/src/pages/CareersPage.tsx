@@ -19,10 +19,10 @@ const jobPostingSchema = {
     "@type": "Place",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "22 Van Veghten Dr",
-      "addressLocality": "Bridgewater",
+      "streetAddress": "1100 NJ-34",
+      "addressLocality": "Aberdeen Township",
       "addressRegion": "NJ",
-      "postalCode": "08807",
+      "postalCode": "07747",
       "addressCountry": "US"
     }
   },
@@ -83,6 +83,10 @@ function BulletList({ items }: { items: string[] }) {
 }
 
 export default function CareersPage() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   useEffect(() => {
     const script = document.createElement("script");
     script.type = "application/ld+json";

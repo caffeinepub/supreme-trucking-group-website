@@ -1,10 +1,9 @@
 # Specification
 
 ## Summary
-**Goal:** Add a JobPosting JSON-LD structured data block to the CareersPage so search engines can index the job listing.
+**Goal:** Fix the Careers page so it always scrolls to the top when navigated to from any other page.
 
 **Planned changes:**
-- In `frontend/src/pages/CareersPage.tsx`, inject a `<script type="application/ld+json">` tag via `dangerouslySetInnerHTML` containing a valid schema.org `JobPosting` object with fields: `@context`, `@type`, `title` (Class A CDL Team Driver – OTR Refrigerated), `hiringOrganization` (Supreme Trucking / supremeltl.com), `jobLocation` (United States/nationwide), `datePosted`, `baseSalary` (CPM pay structure), and `applicationContact` (phone 201-838-0000 ext. 1, email recruiting@supremeltl.com).
-- No other files, components, pages, styles, or backend logic are modified.
+- Add a `useEffect` hook in `CareersPage.tsx` that calls `window.scrollTo(0, 0)` on component mount.
 
-**User-visible outcome:** The `/careers` page DOM will contain a hidden JSON-LD script block that enables search engines to display the job posting as a rich result, with no visible changes to the page layout or content.
+**User-visible outcome:** Clicking the Careers link from any page will always bring the user to the top of the Careers page.

@@ -1,23 +1,25 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-27T19:58:10.065Z",
+  "generatedAt": "2026-02-27T20:41:44.718Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
     "total": 1,
-    "implemented": 0,
+    "implemented": 1,
     "items": [
       {
-        "id": "REQ-9",
-        "summary": "In frontend/src/pages/CareersPage.tsx, inject a valid schema.org JobPosting JSON-LD structured data block directly in the component's JSX return as a <script type='application/ld+json'> tag using dangerouslySetInnerHTML. The JSON-LD must include at minimum: @context (https://schema.org), @type (JobPosting), title (Class A CDL Team Driver – OTR Refrigerated), hiringOrganization (Supreme Trucking / supremeltl.com), jobLocation (nationwide/United States), datePosted, baseSalary reflecting the CPM pay structure, and applicationContact with phone (201) 838-0000 ext. 1 and email recruiting@supremeltl.com. Do not modify any other component, page, backend logic, or styling — only add the <script> tag to CareersPage.tsx.",
-        "status": "missing",
+        "id": "REQ-11",
+        "summary": "Ensure that navigating to the /careers route from any other page scrolls the browser viewport to the top of the page. Implement a scroll-to-top effect in the CareersPage component (frontend/src/pages/CareersPage.tsx) using a useEffect hook that calls window.scrollTo(0, 0) on mount, so the page always loads at the top regardless of scroll position on the originating page.",
+        "status": "implemented",
         "plannedFiles": [
           "frontend/src/pages/CareersPage.tsx"
         ],
-        "matchedFiles": []
+        "matchedFiles": [
+          "frontend/src/pages/CareersPage.tsx"
+        ]
       }
     ]
   },
@@ -26,6 +28,7 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
+    "frontend/src/pages/CareersPage.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

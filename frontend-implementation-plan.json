@@ -1,24 +1,23 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Add JobPosting JSON-LD structured data to CareersPage",
+  "title": "Scroll to top of Careers page on navigation",
   "requirements": [
     {
-      "id": "REQ-9",
-      "summary": "Inject valid schema.org JobPosting JSON-LD structured data into CareersPage.tsx as a <script type='application/ld+json'> tag",
+      "id": "REQ-11",
+      "summary": "Implement scroll-to-top behavior in CareersPage component using useEffect hook to ensure the page always loads at the top when navigated to from any other page",
       "acceptanceCriteria": [
-        "The rendered DOM of the /careers route contains a <script type='application/ld+json'> element.",
-        "The JSON-LD content parses as valid JSON and includes @context, @type, title, hiringOrganization, jobLocation, and datePosted fields.",
-        "@type is exactly 'JobPosting'.",
-        "hiringOrganization references Supreme Trucking.",
-        "applicationContact email is recruiting@supremeltl.com.",
-        "No other component, page, backend file, or stylesheet is modified."
+        "Clicking the Careers link from the home page navigates to /careers and the page is scrolled to the top.",
+        "Clicking the Careers link from the Resources page navigates to /careers and the page is scrolled to the top.",
+        "Clicking the Careers link from any other page navigates to /careers and the page is scrolled to the top.",
+        "The scroll-to-top behavior triggers on every mount of CareersPage, not just the first visit.",
+        "No other page or component behavior is changed."
       ],
       "file_operations": [
         {
           "path": "frontend/src/pages/CareersPage.tsx",
           "operation": "modify",
-          "description": "Add a <script type='application/ld+json'> tag using dangerouslySetInnerHTML within the component's JSX return. The JSON-LD structured data must include @context (https://schema.org), @type (JobPosting), title (Class A CDL Team Driver – OTR Refrigerated), hiringOrganization with name Supreme Trucking and sameAs supremeltl.com, jobLocation covering nationwide/United States, datePosted with an ISO 8601 date, baseSalary reflecting the CPM pay structure from the existing page content, and applicationContact with telephone (201) 838-0000 ext. 1 and email recruiting@supremeltl.com. Do not alter any existing JSX, styling, or visible content on the page."
+          "description": "Add a useEffect hook that calls window.scrollTo(0, 0) on component mount to scroll the browser viewport to the top of the page. Import useEffect from React if not already imported. Place the effect after the existing component logic but before the return statement. Do not modify any existing content, styling, or JSON-LD structured data."
         }
       ]
     }

@@ -1,41 +1,38 @@
 {
   "kind": "build_request",
-  "title": "Add JobPosting JSON-LD structured data to CareersPage",
+  "title": "Scroll to top of Careers page on navigation",
   "projectName": "Supreme Trucking",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-9",
-      "text": "In frontend/src/pages/CareersPage.tsx, inject a valid schema.org JobPosting JSON-LD structured data block directly in the component's JSX return as a <script type='application/ld+json'> tag using dangerouslySetInnerHTML. The JSON-LD must include at minimum: @context (https://schema.org), @type (JobPosting), title (Class A CDL Team Driver – OTR Refrigerated), hiringOrganization (Supreme Trucking / supremeltl.com), jobLocation (nationwide/United States), datePosted, baseSalary reflecting the CPM pay structure, and applicationContact with phone (201) 838-0000 ext. 1 and email recruiting@supremeltl.com. Do not modify any other component, page, backend logic, or styling — only add the <script> tag to CareersPage.tsx.",
+      "id": "REQ-11",
+      "text": "Ensure that navigating to the /careers route from any other page scrolls the browser viewport to the top of the page. Implement a scroll-to-top effect in the CareersPage component (frontend/src/pages/CareersPage.tsx) using a useEffect hook that calls window.scrollTo(0, 0) on mount, so the page always loads at the top regardless of scroll position on the originating page.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-4"
         ],
         "quotes": [
-          "i need you to add JobPosting schema to the careers page. change nothing else"
+          "when i click on the word careers from any other page, it takes me there but not to the top of the page. please fix"
         ]
       },
       "acceptanceCriteria": [
-        "The rendered DOM of the /careers route contains a <script type='application/ld+json'> element.",
-        "The JSON-LD content parses as valid JSON and includes @context, @type, title, hiringOrganization, jobLocation, and datePosted fields.",
-        "@type is exactly 'JobPosting'.",
-        "hiringOrganization references Supreme Trucking.",
-        "applicationContact email is recruiting@supremeltl.com.",
-        "No other component, page, backend file, or stylesheet is modified."
+        "Clicking the Careers link from the home page navigates to /careers and the page is scrolled to the top.",
+        "Clicking the Careers link from the Resources page navigates to /careers and the page is scrolled to the top.",
+        "Clicking the Careers link from any other page navigates to /careers and the page is scrolled to the top.",
+        "The scroll-to-top behavior triggers on every mount of CareersPage, not just the first visit.",
+        "No other page or component behavior is changed."
       ]
     }
   ],
   "constraints": [
-    "Only frontend/src/pages/CareersPage.tsx may be modified.",
-    "Do not alter any existing visible content, layout, or styling on the Careers page.",
-    "Do not modify any backend files, other frontend components, or other pages."
+    "Only modify frontend/src/pages/CareersPage.tsx — do not change routing configuration, Header, Footer, or any other component.",
+    "Do not alter any existing content, styling, or JSON-LD structured data in CareersPage.tsx."
   ],
   "nonGoals": [
-    "Changing any copy, pay rates, contact info, or visual design on the Careers page.",
-    "Adding structured data to any page other than CareersPage.tsx.",
-    "Modifying Header.tsx, Footer.tsx, or any other component.",
-    "Backend changes of any kind."
+    "Adding scroll-to-top behavior to any page other than CareersPage.",
+    "Modifying the TanStack Router configuration or route definitions.",
+    "Changing navigation links in the Header or Footer."
   ],
   "imageRequirements": {
     "required": [],

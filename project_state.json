@@ -1,12 +1,12 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 19,
+  "projectStateVersion": 23,
   "summary": "New project",
   "architectural_notes": [],
   "known_issues": [
     "JobPosting schema was reportedly not added despite deployment of Version 47 — needs retry"
   ],
-  "isFixRequest": false,
+  "isFixRequest": true,
   "existing_features": [
     {
       "id": "feature-add-jobposting-json-ld-structured-data-markup-schema-org-jobposting-to-the-careers-page-so-search-engines-can-index-job-postings-inject-the-script-type-application-ld-json-block-into-the-careerspage-component-do-not-modify-any-other-component-page-backend-logic-or-styling",
@@ -45,6 +45,22 @@
       "title": "In the CareersPage component (frontend/src/pages/CareersPage.tsx), replace the email address 'contact@supremeltl.com' with 'recruiting@supremeltl.com' in the Apply Today section. Also update the email in the JSON-LD structured data script tag if it appears there.",
       "reqIds": [
         "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-the-careerspage-component-frontend-src-pages-careerspage-tsx-update-the-company-address-to-1100-nj-34-aberdeen-township-nj-07747-wherever-an-address-appears-including-in-the-apply-today-section-and-in-the-json-ld-structured-data-script-tag-joblocation-or-address-fields-also-update-the-address-in-the-contactform-component-frontend-src-components-contactform-tsx-and-the-footer-component-frontend-src-components-footer-tsx-if-an-address-is-displayed-there",
+      "title": "In the CareersPage component (frontend/src/pages/CareersPage.tsx), update the company address to '1100 NJ-34, Aberdeen Township, NJ 07747' wherever an address appears — including in the Apply Today section and in the JSON-LD structured data script tag (jobLocation or address fields). Also update the address in the ContactForm component (frontend/src/components/ContactForm.tsx) and the Footer component (frontend/src/components/Footer.tsx) if an address is displayed there.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-that-navigating-to-the-careers-route-from-any-other-page-scrolls-the-browser-viewport-to-the-top-of-the-page-implement-a-scroll-to-top-effect-in-the-careerspage-component-frontend-src-pages-careerspage-tsx-using-a-useeffect-hook-that-calls-window-scrollto-0-0-on-mount-so-the-page-always-loads-at-the-top-regardless-of-scroll-position-on-the-originating-page",
+      "title": "Ensure that navigating to the /careers route from any other page scrolls the browser viewport to the top of the page. Implement a scroll-to-top effect in the CareersPage component (frontend/src/pages/CareersPage.tsx) using a useEffect hook that calls window.scrollTo(0, 0) on mount, so the page always loads at the top regardless of scroll position on the originating page.",
+      "reqIds": [
+        "REQ-11"
       ],
       "version": 1
     }
@@ -110,6 +126,18 @@
       "reqIds": [
         "REQ-9"
       ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Change the address to 1100 NJ-34, Aberdeen Township, NJ 07747 (likely on the Careers page or site-wide)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "When navigating to the Careers page from any other page, scroll to the top of the page on arrival",
+      "reqIds": [],
       "status": "pending"
     }
   ],

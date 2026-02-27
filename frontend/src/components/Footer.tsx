@@ -55,8 +55,8 @@ export default function Footer() {
                 <div className="flex items-start space-x-2">
                   <MapPin className="h-5 w-5 flex-shrink-0 mt-0.5" />
                   <div className="text-sm text-white/80">
-                    22 Van Veghten Dr<br />
-                    Bridgewater, NJ 08807
+                    1100 NJ-34<br />
+                    Aberdeen Township, NJ 07747
                   </div>
                 </div>
                 <div className="flex items-center space-x-2">

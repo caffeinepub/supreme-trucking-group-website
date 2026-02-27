@@ -1,4 +1,24 @@
 {
   "kind": "feature_evidence_report",
-  "features": []
+  "features": [
+    {
+      "featureId": "feature-ensure-that-navigating-to-the-careers-route-from-any-other-page-scrolls-the-browser-viewport-to-the-top-of-the-page-implement-a-scroll-to-top-effect-in-the-careerspage-component-frontend-src-pages-careerspage-tsx-using-a-useeffect-hook-that-calls-window-scrollto-0-0-on-mount-so-the-page-always-loads-at-the-top-regardless-of-scroll-position-on-the-originating-page",
+      "featureTitle": "Ensure that navigating to the /careers route from any other page scrolls the browser viewport to the top of the page. Implement a scroll-to-top effect in the CareersPage component (frontend/src/pages/CareersPage.tsx) using a useEffect hook that calls window.scrollTo(0, 0) on mount, so the page always loads at the top regardless of scroll position on the originating page.",
+      "files": [
+        "frontend/src/pages/CareersPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "blob-storage@4.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-11"
+      ],
+      "confidence": "high"
+    }
+  ]
 }

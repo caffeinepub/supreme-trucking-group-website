@@ -108,8 +108,8 @@ export default function ContactForm() {
                     <div>
                       <p className="font-semibold text-foreground">Address</p>
                       <p className="text-muted-foreground">
-                        22 Van Veghten Dr<br />
-                        Bridgewater, NJ 08807
+                        1100 NJ-34<br />
+                        Aberdeen Township, NJ 07747
                       </p>
                     </div>
                   </div>
