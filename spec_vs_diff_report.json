@@ -1,14 +1,14 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-27T17:01:27.559Z",
-  "summary": "REQ-4 is fully implemented. The diff shows that frontend/src/pages/CareersPage.tsx was modified to include a valid schema.org/JobPosting JSON-LD structured data block injected via a <script type='application/ld+json'> tag. The schema includes all required fields: title, datePosted, hiringOrganization, jobLocation, and applicantLocationRequirements. Two additional files were modified (frontend-file-summaries.txt and project_state.json), which are metadata/documentation files rather than application source files, so they do not violate the constraint of not modifying other frontend components or backend logic.",
+  "generatedAt": "2026-02-27T18:15:10.270Z",
+  "summary": "The diff shows that Header.tsx was modified to add a handleCareersClick function that navigates to '/careers' using the same pattern as handleResourcesClick, and this handler is applied to both the desktop nav and mobile hamburger menu Careers buttons. This directly addresses REQ-7.",
   "missing_requirements": [],
   "hallucinated_features": [],
-  "confidence": 0.95,
+  "confidence": 0.97,
   "changed_files": [
     "frontend-file-summaries.txt",
-    "frontend/src/pages/CareersPage.tsx",
+    "frontend/src/components/Header.tsx",
     "project_state.json"
   ]
 }

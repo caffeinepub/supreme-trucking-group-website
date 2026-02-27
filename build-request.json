@@ -1,36 +1,38 @@
 {
   "kind": "build_request",
-  "title": "Add JobPosting structured data schema",
-  "projectName": "Supreme LTL",
-  "priority": "normal",
+  "title": "Fix broken Careers navigation link on the main page",
+  "projectName": "Supreme Trucking",
+  "priority": "high",
   "requirements": [
     {
-      "id": "REQ-4",
-      "text": "Add JobPosting JSON-LD structured data markup (schema.org/JobPosting) to the Careers page so search engines can index job postings. Inject the <script type='application/ld+json'> block into the CareersPage component. Do not modify any other component, page, backend logic, or styling.",
+      "id": "REQ-7",
+      "text": "Fix the 'Careers' navigation link in the Header component (frontend/src/components/Header.tsx) so that clicking it navigates to the /careers route. Inspect the current click handler or href for the Careers nav item and ensure it uses the router's navigation (e.g., router.navigate or an <a href='/careers'> / Link to='/careers') consistently with how the Resources page link is implemented. Apply the fix to both the desktop nav and the mobile hamburger menu.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-7"
+          "msg-4"
         ],
         "quotes": [
-          "add JobPosting schema and change nothing else"
+          "when i click on the word careers in the main page, nothing happens"
         ]
       },
       "acceptanceCriteria": [
-        "A <script type='application/ld+json'> tag containing a valid schema.org/JobPosting object is rendered in the CareersPage component.",
-        "No other files are modified — backend, other pages, components, hooks, and styles remain unchanged.",
-        "The structured data validates against schema.org/JobPosting requirements (hiringOrganization, title, datePosted, jobLocation or applicantLocationRequirements)."
+        "Clicking 'Careers' in the desktop navigation bar navigates the user to the /careers page.",
+        "Clicking 'Careers' in the mobile hamburger menu navigates the user to the /careers page.",
+        "The Careers link behavior is consistent with how the Resources link is implemented in the Header.",
+        "No other navigation links or page functionality are broken by this change."
       ]
     }
   ],
   "constraints": [
-    "Only modify frontend/src/pages/CareersPage.tsx — no other files.",
-    "Do not alter any backend logic, data models, or other frontend components."
+    "Do not modify any immutable frontend paths (useInternetIdentity, useActor, main.tsx, ui components).",
+    "Do not alter the CareersPage content or its JSON-LD structured data.",
+    "Do not change backend logic."
   ],
   "nonGoals": [
-    "Adding actual job listings or dynamic job data from the backend.",
-    "Modifying the privacy policy content or contact information.",
-    "Changing any UI styling or layout."
+    "Changing the content or layout of the Careers page itself.",
+    "Modifying any other navigation links beyond the Careers entry.",
+    "Adding new routes or pages."
   ],
   "imageRequirements": {
     "required": [],

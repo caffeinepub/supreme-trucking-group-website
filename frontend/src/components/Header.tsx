@@ -1,173 +1,147 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { useNavigate } from '@tanstack/react-router';
 import { Menu, X } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { useNavigate, useRouterState } from '@tanstack/react-router';
 
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
-  const routerState = useRouterState();
-  const isHomePage = routerState.location.pathname === '/';
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const scrollToSection = (id: string) => {
-    if (!isHomePage) {
-      navigate({ to: '/' }).then(() => {
-        setTimeout(() => {
-          const element = document.getElementById(id);
-          if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-        }, 100);
-      });
-    } else {
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }
-    setIsMobileMenuOpen(false);
+  const handleHomeClick = () => {
+    navigate({ to: '/' });
+    setMobileMenuOpen(false);
   };
 
-  const handleLogoClick = () => {
-    navigate({ to: '/' });
-    if (isHomePage) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+  const handleScrollToSection = (sectionId: string) => {
+    setMobileMenuOpen(false);
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      navigate({ to: '/' }).then(() => {
+        setTimeout(() => {
+          const el = document.getElementById(sectionId);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      });
     }
   };
 
   const handleResourcesClick = () => {
     navigate({ to: '/resources' });
-    setIsMobileMenuOpen(false);
+    setMobileMenuOpen(false);
   };
 
   const handleCareersClick = () => {
     navigate({ to: '/careers' });
-    setIsMobileMenuOpen(false);
+    setMobileMenuOpen(false);
   };
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-md' : 'bg-white/95 backdrop-blur-sm'
-      }`}
-    >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border shadow-sm">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <button onClick={handleLogoClick} className="flex items-center">
+          <button onClick={handleHomeClick} className="flex items-center gap-2 hover:opacity-80 transition-opacity">
             <img
               src="/assets/generated/supreme-trucking-logo-corrected-transparent.dim_300x150.png"
               alt="Supreme Trucking Group"
-              className="h-12 w-auto"
+              className="h-10 w-auto"
             />
           </button>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center gap-6">
             <button
-              onClick={() => scrollToSection('home')}
-              className="text-foreground hover:text-primary font-medium transition-colors"
+              onClick={handleHomeClick}
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
             >
               Home
             </button>
             <button
-              onClick={() => scrollToSection('about')}
-              className="text-foreground hover:text-primary font-medium transition-colors"
+              onClick={() => handleScrollToSection('about')}
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
             >
-              About Us
+              About
             </button>
             <button
-              onClick={() => scrollToSection('services')}
-              className="text-foreground hover:text-primary font-medium transition-colors"
+              onClick={() => handleScrollToSection('services')}
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
             >
               Services
             </button>
             <button
+              onClick={() => handleScrollToSection('contact')}
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+            >
+              Contact
+            </button>
+            <button
               onClick={handleResourcesClick}
-              className="text-foreground hover:text-primary font-medium transition-colors"
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
             >
               Resources
             </button>
             <button
               onClick={handleCareersClick}
-              className="text-foreground hover:text-primary font-medium transition-colors"
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
             >
               Careers
             </button>
-            <Button
-              onClick={() => scrollToSection('contact')}
-              className="bg-primary hover:bg-primary/90 text-white"
-            >
-              Get a Quote
-            </Button>
           </nav>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden p-2 rounded-md text-foreground hover:text-primary transition-colors"
           >
-            {isMobileMenuOpen ? (
-              <X className="h-6 w-6 text-foreground" />
-            ) : (
-              <Menu className="h-6 w-6 text-foreground" />
-            )}
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
-
-        {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <nav className="md:hidden py-4 border-t">
-            <div className="flex flex-col space-y-4">
-              <button
-                onClick={() => scrollToSection('home')}
-                className="text-foreground hover:text-primary font-medium transition-colors text-left"
-              >
-                Home
-              </button>
-              <button
-                onClick={() => scrollToSection('about')}
-                className="text-foreground hover:text-primary font-medium transition-colors text-left"
-              >
-                About Us
-              </button>
-              <button
-                onClick={() => scrollToSection('services')}
-                className="text-foreground hover:text-primary font-medium transition-colors text-left"
-              >
-                Services
-              </button>
-              <button
-                onClick={handleResourcesClick}
-                className="text-foreground hover:text-primary font-medium transition-colors text-left"
-              >
-                Resources
-              </button>
-              <button
-                onClick={handleCareersClick}
-                className="text-foreground hover:text-primary font-medium transition-colors text-left"
-              >
-                Careers
-              </button>
-              <Button
-                onClick={() => scrollToSection('contact')}
-                className="bg-primary hover:bg-primary/90 text-white w-full"
-              >
-                Get a Quote
-              </Button>
-            </div>
-          </nav>
-        )}
       </div>
+
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-background border-t border-border">
+          <div className="px-4 py-3 space-y-3">
+            <button
+              onClick={handleHomeClick}
+              className="block w-full text-left text-sm font-medium text-foreground hover:text-primary transition-colors py-2"
+            >
+              Home
+            </button>
+            <button
+              onClick={() => handleScrollToSection('about')}
+              className="block w-full text-left text-sm font-medium text-foreground hover:text-primary transition-colors py-2"
+            >
+              About
+            </button>
+            <button
+              onClick={() => handleScrollToSection('services')}
+              className="block w-full text-left text-sm font-medium text-foreground hover:text-primary transition-colors py-2"
+            >
+              Services
+            </button>
+            <button
+              onClick={() => handleScrollToSection('contact')}
+              className="block w-full text-left text-sm font-medium text-foreground hover:text-primary transition-colors py-2"
+            >
+              Contact
+            </button>
+            <button
+              onClick={handleResourcesClick}
+              className="block w-full text-left text-sm font-medium text-foreground hover:text-primary transition-colors py-2"
+            >
+              Resources
+            </button>
+            <button
+              onClick={handleCareersClick}
+              className="block w-full text-left text-sm font-medium text-foreground hover:text-primary transition-colors py-2"
+            >
+              Careers
+            </button>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

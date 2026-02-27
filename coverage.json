@@ -1,7 +1,7 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-27T17:01:27.562Z",
+  "generatedAt": "2026-02-27T18:15:10.272Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
@@ -11,26 +11,24 @@
     "implemented": 1,
     "items": [
       {
-        "id": "REQ-4",
-        "summary": "Add JobPosting JSON-LD structured data markup (schema.org/JobPosting) to the Careers page so search engines can index job postings. Inject the <script type='application/ld+json'> block into the CareersPage component. Do not modify any other component, page, backend logic, or styling.",
+        "id": "REQ-7",
+        "summary": "Fix the 'Careers' navigation link in the Header component (frontend/src/components/Header.tsx) so that clicking it navigates to the /careers route. Inspect the current click handler or href for the Careers nav item and ensure it uses the router's navigation (e.g., router.navigate or an <a href='/careers'> / Link to='/careers') consistently with how the Resources page link is implemented. Apply the fix to both the desktop nav and the mobile hamburger menu.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/pages/CareersPage.tsx"
+          "frontend/src/components/Header.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/pages/CareersPage.tsx"
+          "frontend/src/components/Header.tsx"
         ]
       }
     ]
   },
   "changedFiles": [
     "build-request.json",
-    "build-template/README.md",
-    "caffeine.lock.json",
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/pages/CareersPage.tsx",
+    "frontend/src/components/Header.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

@@ -1,21 +1,22 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Add JobPosting structured data schema",
+  "title": "Fix broken Careers navigation link on the main page",
   "requirements": [
     {
-      "id": "REQ-4",
-      "summary": "Add JobPosting JSON-LD structured data markup to the Careers page for search engine indexing",
+      "id": "REQ-7",
+      "summary": "Fix the Careers navigation link in the Header component so clicking it navigates to the /careers route in both desktop and mobile navigation",
       "acceptanceCriteria": [
-        "A <script type='application/ld+json'> tag containing a valid schema.org/JobPosting object is rendered in the CareersPage component.",
-        "No other files are modified — backend, other pages, components, hooks, and styles remain unchanged.",
-        "The structured data validates against schema.org/JobPosting requirements (hiringOrganization, title, datePosted, jobLocation or applicantLocationRequirements)."
+        "Clicking 'Careers' in the desktop navigation bar navigates the user to the /careers page.",
+        "Clicking 'Careers' in the mobile hamburger menu navigates the user to the /careers page.",
+        "The Careers link behavior is consistent with how the Resources link is implemented in the Header.",
+        "No other navigation links or page functionality are broken by this change."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/pages/CareersPage.tsx",
+          "path": "frontend/src/components/Header.tsx",
           "operation": "modify",
-          "description": "Inject a <script type='application/ld+json'> block containing schema.org/JobPosting structured data into the CareersPage component. The JSON-LD must include required properties: hiringOrganization (with name, sameAs, logo), jobPosting array with at least one posting containing title, datePosted, description, employmentType, jobLocation (with address details including addressLocality, addressRegion, addressCountry), and applicantLocationRequirements if remote work is supported. Use Supreme LTL/Supreme Trucking Group as the organization name, maintain consistency with existing contact information (201.838.0000, address), and ensure the markup is valid JSON-LD that search engines can parse."
+          "description": "Inspect and fix the Careers navigation link click handler in both desktop and mobile menus. Compare with the Resources link implementation and ensure consistent router.navigate usage. Verify the navigation works correctly by testing the onClick handler for the Careers nav item matches the pattern used for Resources."
         }
       ]
     }

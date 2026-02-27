@@ -2,10 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-add-jobposting-json-ld-structured-data-markup-schema-org-jobposting-to-the-careers-page-so-search-engines-can-index-job-postings-inject-the-script-type-application-ld-json-block-into-the-careerspage-component-do-not-modify-any-other-component-page-backend-logic-or-styling",
-      "featureTitle": "Add JobPosting JSON-LD structured data markup (schema.org/JobPosting) to the Careers page so search engines can index job postings. Inject the <script type='application/ld+json'> block into the CareersPage component. Do not modify any other component, page, backend logic, or styling.",
+      "featureId": "feature-fix-the-careers-navigation-link-in-the-header-component-frontend-src-components-header-tsx-so-that-clicking-it-navigates-to-the-careers-route-inspect-the-current-click-handler-or-href-for-the-careers-nav-item-and-ensure-it-uses-the-router-s-navigation-e-g-router-navigate-or-an-a-href-careers-link-to-careers-consistently-with-how-the-resources-page-link-is-implemented-apply-the-fix-to-both-the-desktop-nav-and-the-mobile-hamburger-menu",
+      "featureTitle": "Fix the 'Careers' navigation link in the Header component (frontend/src/components/Header.tsx) so that clicking it navigates to the /careers route. Inspect the current click handler or href for the Careers nav item and ensure it uses the router's navigation (e.g., router.navigate or an <a href='/careers'> / Link to='/careers') consistently with how the Resources page link is implemented. Apply the fix to both the desktop nav and the mobile hamburger menu.",
       "files": [
-        "frontend/src/pages/CareersPage.tsx"
+        "frontend/src/components/Header.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -16,7 +16,7 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-4"
+        "REQ-7"
       ],
       "confidence": "high"
     }

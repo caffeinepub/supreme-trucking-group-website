@@ -1,16 +1,43 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 9,
+  "projectStateVersion": 15,
   "summary": "New project",
   "architectural_notes": [],
-  "known_issues": [],
-  "isFixRequest": false,
+  "known_issues": [
+    "JobPosting schema was reportedly not added despite deployment of Version 47 — needs retry",
+    "Careers navigation link on the main page is non-functional — click does nothing"
+  ],
+  "isFixRequest": true,
   "existing_features": [
     {
       "id": "feature-add-jobposting-json-ld-structured-data-markup-schema-org-jobposting-to-the-careers-page-so-search-engines-can-index-job-postings-inject-the-script-type-application-ld-json-block-into-the-careerspage-component-do-not-modify-any-other-component-page-backend-logic-or-styling",
       "title": "Add JobPosting JSON-LD structured data markup (schema.org/JobPosting) to the Careers page so search engines can index job postings. Inject the <script type='application/ld+json'> block into the CareersPage component. Do not modify any other component, page, backend logic, or styling.",
       "reqIds": [
         "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-inject-a-valid-schema-org-jobposting-json-ld-structured-data-block-into-the-careerspage-component-frontend-src-pages-careerspage-tsx-using-a-script-type-application-ld-json-tag-rendered-inside-a-react-helmet-or-directly-in-the-component-s-jsx-return-the-json-ld-must-conform-to-https-schema-org-jobposting-and-include-at-minimum-context-type-title-hiringorganization-joblocation-and-dateposted-fields-ensure-the-script-tag-is-present-in-the-rendered-dom-output",
+      "title": "Inject a valid schema.org JobPosting JSON-LD structured data block into the CareersPage component (frontend/src/pages/CareersPage.tsx) using a <script type='application/ld+json'> tag rendered inside a React Helmet or directly in the component's JSX return. The JSON-LD must conform to https://schema.org/JobPosting and include at minimum: @context, @type, title, hiringOrganization, jobLocation, and datePosted fields. Ensure the script tag is present in the rendered DOM output.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-all-existing-content-in-the-careerspage-component-frontend-src-pages-careerspage-tsx-with-the-full-class-a-cdl-team-driver-otr-refrigerated-job-posting-the-page-must-display-1-header-class-a-cdl-team-driver-otr-refrigerated-with-tagline-up-to-0-65-cpm-3-000-miles-guaranteed-no-touch-freight-and-intro-text-supreme-trucking-is-hiring-class-a-cdl-team-otr-drivers-for-refrigerated-routes-nationwide-2-pay-structure-section-with-experienced-drivers-2-years-0-65-cpm-1-5-years-0-60-cpm-and-entry-level-drivers-25-000-mile-paid-training-100-day-during-training-after-training-0-45-cpm-3-mileage-guarantee-section-3-000-miles-week-guaranteed-minimum-2-full-consecutive-weeks-out-consistent-steady-freight-4-position-details-section-otr-team-driving-refrigerated-freight-100-no-touch-loads-steady-year-round-work-5-requirements-section-valid-class-a-cdl-dot-requirements-clean-driving-record-verifiable-experience-for-higher-pay-tiers-6-apply-today-section-with-call-201-838-0000-ext-1-text-908-300-5400-email-contact-supremeltl-com-preserve-the-existing-json-ld-structured-data-script-tag-in-the-component",
+      "title": "Replace all existing content in the CareersPage component (frontend/src/pages/CareersPage.tsx) with the full Class A CDL Team Driver – OTR Refrigerated job posting. The page must display: (1) Header: '🚛 Class A CDL Team Driver – OTR Refrigerated' with tagline 'Up to $0.65 CPM | 3,000 Miles Guaranteed | No-Touch Freight' and intro text 'Supreme Trucking is hiring Class A CDL TEAM OTR drivers for refrigerated routes nationwide.'; (2) Pay Structure section with Experienced Drivers (2+ years: $0.65 CPM, 1.5+ years: $0.60 CPM) and Entry-Level Drivers (25,000-mile paid training, $100/day during training, after training: $0.45 CPM); (3) Mileage Guarantee section (3,000 miles/week guaranteed, minimum 2 full consecutive weeks out, consistent steady freight); (4) Position Details section (OTR Team Driving, Refrigerated Freight, 100% No-Touch Loads, Steady Year-Round Work); (5) Requirements section (Valid Class A CDL, DOT requirements, clean driving record, verifiable experience for higher pay tiers); (6) Apply Today section with Call: (201) 838-0000 ext. 1, Text: (908) 300-5400, Email: contact@supremeltl.com. Preserve the existing JSON-LD structured data script tag in the component.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-fix-the-careers-navigation-link-in-the-header-component-frontend-src-components-header-tsx-so-that-clicking-it-navigates-to-the-careers-route-inspect-the-current-click-handler-or-href-for-the-careers-nav-item-and-ensure-it-uses-the-router-s-navigation-e-g-router-navigate-or-an-a-href-careers-link-to-careers-consistently-with-how-the-resources-page-link-is-implemented-apply-the-fix-to-both-the-desktop-nav-and-the-mobile-hamburger-menu",
+      "title": "Fix the 'Careers' navigation link in the Header component (frontend/src/components/Header.tsx) so that clicking it navigates to the /careers route. Inspect the current click handler or href for the Careers nav item and ensure it uses the router's navigation (e.g., router.navigate or an <a href='/careers'> / Link to='/careers') consistently with how the Resources page link is implemented. Apply the fix to both the desktop nav and the mobile hamburger menu.",
+      "reqIds": [
+        "REQ-7"
       ],
       "version": 1
     }
@@ -55,6 +82,18 @@
     {
       "id": "AR-6",
       "summary": "Add JobPosting schema (structured data markup) to the site without changing anything else",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Replace all existing content on the Careers page with the new Class A CDL Team Driver – OTR Refrigerated job posting content including pay structure, mileage guarantee, position details, requirements, and contact info",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Fix broken Careers navigation link on the main page — clicking 'Careers' does nothing",
       "reqIds": [],
       "status": "pending"
     }
